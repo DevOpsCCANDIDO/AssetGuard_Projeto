@@ -1,0 +1,15 @@
+# Framework da Interface
+streamlit
+
+# Processamento de Dados e Gráficos
+pandas
+plotly
+
+# Inteligência Artificial (Google Gemini)
+google-generativeai
+
+# Gestão de Variáveis de Ambiente (.env)
+python-dotenv
+
+# Utilizado para requisições de API e E-mail
+requests
