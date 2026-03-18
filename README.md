@@ -35,3 +35,39 @@ Crie um arquivo `.env` na raiz com as seguintes chaves:
 GEMINI_API_KEY=Sua_Chave_Google_AI_Studio
 EMAIL_USER=seu_email@gmail.com
 EMAIL_PASS=sua_senha_de_app_google
+
+## Como Executar
+
+### Opção 1: Via Docker (Recomendado)
+1. Certifique-se de ter o Docker e Docker Compose instalados.
+2. Build e execução do container:
+   ```bash
+   docker-compose up --build
+   ```
+3. Acesse em seu navegador: `http://localhost:8501`
+
+### Opção 2: Localmente (Ambiente Virtual)
+1. Crie um ambiente virtual:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # No Windows: venv\Scripts\activate
+   ```
+2. Instale as dependências:
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. Execute a aplicação:
+   ```bash
+   streamlit run app.py
+   ```
+
+## Estrutura do Projeto
+- `app.py`: Interface do usuário (Streamlit) e orquestração do sistema.
+- `agent_core.py`: Motor de Inteligência Artificial (Google Gemini 2.0 Flash).
+- `email_service.py`: Serviço de notificações SMTP (E-mail HTML).
+- `validators.py`: Regras de governança e validações isoladas.
+- `data_service.py`: Persistência, log de auditoria e geração de dados.
+- `blueprint.md`: A "Constituição" do software com requisitos e regras.
+- `audit.log`: Registro histórico de todas as operações do sistema.
+- `assets_data.json`: Banco de dados local em formato JSON.
+- `Dockerfile` & `docker-compose.yml`: Configuração para ambiente agnóstico.

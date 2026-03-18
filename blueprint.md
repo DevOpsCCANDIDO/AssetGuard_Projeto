@@ -16,8 +16,10 @@ O AssetGuard é uma aplicação de gestão de ativos de TI desenvolvida para dem
 | US02 | Atribuição com Auditoria | Formulário de cadastro que valida os inputs contra as "Regras de Governança" antes de salvar no JSON. | Alta |
 | US03 | Geração de Dados Sintéticos | Criar função para gerar 50 registros fictícios no JSON. **Nota:** 20% dos dados devem violar as regras de governança para fins de teste de auditoria. | Alta |
 | US04 | Filtro de Conformidade | Toggle na interface para filtrar apenas ativos que apresentam "Violação de Política". | Média |
-| US05 | Menu de Navegação | Criar menu para separar as áreas de "Dashboard" e "Cadastro", exibindo o "Dashboard" como tela inicial por padrão. | Média |
-| **US06** | **Log de Auditoria Imutável (Melhoria 1)** | **Como Auditor, quero que cada alteração no banco de dados seja registrada em um arquivo audit.log separado, contendo data, hora, usuário e a ação realizada, para garantir a rastreabilidade total.** | **Alta** |
+| US05 | Menu de Navegação | Criar menu para separar as áreas de "Dashboard", "Cadastro", "Log de Auditoria" exibindo o "Dashboard" como tela inicial por padrão. | Média |
+| US06 | Log de Auditoria Imutável (Melhoria 1) | Como Auditor, quero que cada alteração no banco de dados seja registrada em um arquivo audit.log separado, contendo data, hora, usuário e a ação realizada, para garantir a rastreabilidade total. As linhas dos eventos de log devem ser apresentadas no dashboard "Log de Auditoria". | Alta |
+| US07 | Envio de E-mail (Melhoria 2) | Ao ser inserido, atualizado ou deletado um registro do inventário deverá ser enviado um e-mail no formato HTML (utilize a biblioteca smtplib e email) para a conta de e-mail. Formatar o resultado HTML em uma tabela, contendo os campos id, asset_name, asset_type, value, role, assigned_to, regime, status, tags, acquisition_date, compliance_violation e seus respectivos valores. Padronize a mensagem de "Um registro foi Inserido/Atualizado/Deletado". | Alta |
+
 
 ## Regras de Governança e Segurança
 
@@ -26,7 +28,7 @@ O AssetGuard é uma aplicação de gestão de ativos de TI desenvolvida para dem
 - **Teto Financeiro:** Periféricos com valor acima de **R$ 3.500,00** devem ser marcados com status "Pendente de Aprovação".
 - **Geolocalização:** Ativos para funcionários em regime "Presencial" devem receber automaticamente a tag `[BH-OFFICE]`.
 - **Restrição de Tipo:** Equipamentos de rede (Switches/Roteadores) só podem ser atribuídos a "Departamentos", nunca a pessoas físicas (CPFs).
-- **Bloqueio de Deleção Condicional (Melhoria 2):** **Segurança: Impedir a exclusão de qualquer ativo que possua um valor de compra superior a R$ 0,00, exigindo um processo de 'Baixa' em vez de deleção física.**
+- **Geolocalização:** Ativos para funcionários em regime "Remoto" devem receber automaticamente a tag `[HOME-OFFICE]`.
 
 ### Segurança e Qualidade
 - **Privacidade (LGPD):** Mascarar o CPF do colaborador na exibição (Ex: `***.456.***-99`).
