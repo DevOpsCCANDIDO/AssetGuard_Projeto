@@ -35,6 +35,8 @@ Crie um arquivo `.env` na raiz com as seguintes chaves:
 GEMINI_API_KEY=Sua_Chave_Google_AI_Studio
 EMAIL_USER=seu_email@gmail.com
 EMAIL_PASS=sua_senha_de_app_google
+Fazer ajuste no arquivo ```email_service.py
+Na linha 17 inserir o email definido como destinatario
 
 ## Como Executar
 
