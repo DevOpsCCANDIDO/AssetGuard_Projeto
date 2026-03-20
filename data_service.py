@@ -22,10 +22,11 @@ def load_data():
         except json.JSONDecodeError:
             return []
 
-def save_data(data, user="System", action="Update"):
+def save_data(data, user="System", action="Update", message=None):
     with open(DB_FILE, 'w') as f:
         json.dump(data, f, indent=4)
-    log_audit(user, action, f"Database updated. Total records: {len(data)}")
+    details = message if message else f"Database updated. Total records: {len(data)}"
+    log_audit(user, action, details)
 
 def generate_synthetic_data(user="System"):
     roles = ['Estagiário', 'Júnior', 'Pleno', 'Sênior', 'Lead', 'Diretoria']

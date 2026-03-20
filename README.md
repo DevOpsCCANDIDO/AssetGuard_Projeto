@@ -30,13 +30,16 @@ O **AssetGuard** é uma aplicação avançada de gestão de inventário de hardw
 ## ⚙️ Configuração do Ambiente
 
 ### 1. Variáveis de Ambiente (`.env`)
-Crie um arquivo `.env` na raiz com as seguintes chaves:
+Crie um arquivo `.env` na raiz com as seguintes chaves (você pode copiar `.env.example`):
 ```env
 GEMINI_API_KEY=Sua_Chave_Google_AI_Studio
 EMAIL_USER=seu_email@gmail.com
 EMAIL_PASS=sua_senha_de_app_google
-Fazer ajuste no arquivo email_service.py
-Na linha 17 inserir o email definido como destinatario
+```
+
+Notas:
+- Para Gmail: ative a Verificação em Duas Etapas e crie um *App Password* para uso aqui.
+- Não comite o arquivo `.env` em repositórios públicos.
 
 ## Como Executar
 
