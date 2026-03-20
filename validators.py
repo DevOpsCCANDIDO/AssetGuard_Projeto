@@ -1,4 +1,5 @@
 import re
+import math
 
 def validate_asset(data):
     """
@@ -53,11 +54,32 @@ def validate_asset(data):
     return is_valid, reason, updated_data
 
 def mask_cpf(cpf):
-    """Aplica máscara LGPD no CPF: ***.456.***-99"""
-    if not cpf or len(cpf) < 11:
+    """Aplica máscara LGPD no CPF: ***.456.***-99
+
+    Trata casos onde `cpf` pode ser `NaN` (float), `None`, números ou strings.
+    Retorna o valor original quando não for possível aplicar a máscara.
+    """
+    # Preserve None
+    if cpf is None:
         return cpf
-    # Remove caracteres não numéricos para padronizar
-    clean_cpf = re.sub(r'\D', '', cpf)
+
+    # Handle pandas NaN (float('nan'))
+    if isinstance(cpf, float):
+        try:
+            if math.isnan(cpf):
+                return cpf
+        except Exception:
+            return cpf
+
+    # Convert to string for processing
+    s = str(cpf)
+    # If empty after conversion, return original
+    if not s or s.lower() == 'nan':
+        return cpf
+
+    # Remove non-numeric characters and mask when we have 11 digits
+    clean_cpf = re.sub(r'\D', '', s)
     if len(clean_cpf) == 11:
         return f"***.{clean_cpf[3:6]}.***-{clean_cpf[9:]}"
+
     return cpf
