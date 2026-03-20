@@ -57,7 +57,7 @@ else:
             if 'assigned_to' in df_display.columns:
                 df_display['assigned_to'] = df_display['assigned_to'].apply(validators.mask_cpf)
             
-            st.dataframe(df_display, use_container_width=True)
+            st.dataframe(df_display, width='stretch')
 
             # Análise da IA Gemini sobre o estado atual
             if st.button("🤖 Solicitar Análise de Segurança da IA"):

@@ -1,7 +1,7 @@
 import os
 import re
 import time
-import google.generativeai as genai
+import google.genai as genai
 from google.api_core import exceptions
 from dotenv import load_dotenv
 

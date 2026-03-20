@@ -6,7 +6,7 @@ pandas
 plotly
 
 # Inteligência Artificial (Google Gemini)
-google-generativeai
+google-genai
 
 # Gestão de Variáveis de Ambiente (.env)
 python-dotenv
