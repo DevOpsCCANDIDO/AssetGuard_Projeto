@@ -110,7 +110,9 @@ else:
                 # Salva e registra auditoria
                 current_data = data_service.load_data()
                 current_data.append(final_data)
-                data_service.save_data(current_data, st.session_state.user_name, "INSERT", f"Ativo {asset_name} adicionado.")
+                # data_service.save_data(current_data, st.session_state.user_name, "INSERT", f"Ativo {asset_name} adicionado.")
+                data_service.save_data(data=current_data, user=st.session_state.user_name, action="INSERT", message=f"Ativo {asset_name} adicionado."
+)
                 
                 # US07: Envio de E-mail
                 email_service.send_inventory_email("Inserido", final_data)
